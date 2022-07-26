@@ -36,8 +36,34 @@ header{
 
 }
 
-nav ul li{
+nav ul{
     list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li{
+    padding: 15px 50px;
+    position: relative;
+    overflow: hidden;    
+}
+
+nav ul li::before{
+    content: "";
+    position: absolute;
+    height: 4px;
+    width: 100px;
+    background: #000;
+    bottom: 0;
+    transform: translateX(110px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(.55,0,.1,1);
+}
+
+nav ul li:hover::before{
+    transform: translateX(0px);
+    opacity: 1;
+    width: 20px;
 }
 
 nav ul, .ad, article{
@@ -64,6 +90,50 @@ li{
     box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.37);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 32px;
+}
+
+.ad{
+    display: flex;
+}
+
+.icon{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 2em;
+    height: 2em;
+    color: rgb(207, 207, 207);
+    font-size: 2,5em;
+    margin: 1rem;
+    padding: 10px;
+    border-radius: 20px;
+    background: #e9e5e5;
+    box-shadow: 12px 12px 24px #c6c3c3, -12px -12px 24px #ffffff;
+}
+
+.heart:hover{
+    color: rgb(241, 98, 170);
+    cursor: pointer;
+}
+
+.trebol:hover{
+    color: rgb(70, 247, 125);
+    cursor: pointer;
+}
+
+.diamond:hover{
+    color: rgb(65, 180, 240);
+}
+
+.heart:active,
+.trebol:active,
+.diamond:active{
+    transform: scale(1.8);
+    transition: box-shadow .3s, transform 6s cubic-bezier(.5,4,1,2);
+    box-shadow: inset -2px -2px 8px rgba(255, 255, 255, 0.5),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+    inset 2px 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 
